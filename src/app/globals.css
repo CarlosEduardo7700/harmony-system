@@ -1,7 +1,19 @@
 @import "tailwindcss";
 
 @layer components {
-  .header-home {
-    @apply bg-neutral-900 h-52 text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-sky-400;
+  body {
+    @apply bg-sky-900;
+  }
+
+  .container-principal {
+    @apply h-screen flex flex-col items-center;
+
+    & .header-home {
+      @apply bg-sky-950 h-1/5 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
+    }
+  
+    & .container-section {
+      @apply bg-white min-h-4/5 w-11/12 flex justify-center items-center flex-wrap;
+    }
   }
 }
