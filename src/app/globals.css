@@ -2,18 +2,15 @@
 
 @layer components {
   body {
-    @apply bg-sky-900;
+    @apply bg-sky-900 flex flex-col justify-center items-center;
   }
 
   .container-principal {
-    @apply h-screen flex flex-col items-center;
+    @apply bg-white w-11/12 flex justify-center items-center flex-wrap;
+    
+  }
 
-    & .header-home {
-      @apply bg-sky-950 h-1/5 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
-    }
-  
-    & .container-section {
-      @apply bg-white min-h-4/5 w-11/12 flex justify-center items-center flex-wrap;
-    }
+  .container-header {
+    @apply bg-sky-950 h-36 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
   }
 }
