@@ -13,4 +13,8 @@
   .container-header {
     @apply bg-sky-950 h-36 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
   }
+
+  .container-feature-box {
+    @apply border-2 border-cyan-400 h-40 w-40 m-5 hover:bg-cyan-100 transition duration-300 cursor-pointer;
+  }
 }
