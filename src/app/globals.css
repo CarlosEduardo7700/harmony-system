@@ -2,16 +2,16 @@
 
 @layer components {
   body {
-    @apply bg-sky-900 flex flex-col justify-center items-center;
+    @apply bg-sky-900 h-screen flex flex-col justify-start items-center;
   }
 
   .container-principal {
-    @apply bg-white w-11/12 flex justify-center items-center flex-wrap;
+    @apply bg-white min-h-fit h-full w-11/12 flex justify-center items-center flex-wrap;
     
   }
 
   .container-header {
-    @apply bg-sky-950 h-36 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
+    @apply bg-sky-950 min-h-36 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
   }
 
   .container-feature-box {
