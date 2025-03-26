@@ -1,11 +1,14 @@
+import Link from "next/link";
+
 interface FeatureBoxProps {
     text: string;
+    urlFeature: string;
 }
 
-export default function FeatureBox({text}: FeatureBoxProps) {
+export default function FeatureBox({text, urlFeature}: FeatureBoxProps) {
     return (
-        <button className="container-feature-box">
+        <Link href={urlFeature} className="container-feature-box">
             <p>{text}</p>
-        </button>
+        </Link>
     );
 }
