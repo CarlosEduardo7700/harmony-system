@@ -6,12 +6,16 @@
   }
 
   .container-principal {
-    @apply bg-white min-h-fit h-full w-11/12 p-5 flex justify-center items-center flex-wrap;
+    @apply bg-white min-h-fit h-full w-11/12 p-5 flex flex-col justify-center items-center flex-wrap;
     
   }
 
   .container-header {
     @apply bg-sky-950 min-h-36 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
+  }
+
+  .section-features {
+    @apply h-auto w-full mb-5 flex justify-center items-center flex-wrap;
   }
 
   .container-feature-box {
