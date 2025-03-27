@@ -21,6 +21,10 @@
   .form-cadastro-aulas {
     @apply w-5/6 flex flex-col justify-center items-center;
 
+    & .form-title {
+      @apply text-3xl text-center font-bold mb-5;
+    }
+
     & .container-form-field {
       @apply w-full flex flex-col p-3;
 
@@ -52,5 +56,9 @@
     & .form-button {
       @apply bg-cyan-400 h-10 w-2/5 rounded-2xl font-bold hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer;
     }
+  }
+
+  .back-home-button {
+    @apply bg-cyan-400 h-10 w-2/5 mr-auto mb-5 rounded-2xl font-bold hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer flex justify-center items-center;
   }
 }

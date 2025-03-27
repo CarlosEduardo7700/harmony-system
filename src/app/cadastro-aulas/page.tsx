@@ -1,7 +1,14 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="container-principal">
+
+        <Link href="/" className="back-home-button">Home</Link>
+
         <form action="" className="form-cadastro-aulas">
+
+            <h1 className="form-title">Formulário para Cadastro das Aulas</h1>
 
             <div className="container-form-field">
                 <label htmlFor="title" className="form-field-label">Título</label>
