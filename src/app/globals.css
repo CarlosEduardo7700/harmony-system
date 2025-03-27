@@ -63,6 +63,6 @@
   }
 
   .back-home-button {
-    @apply bg-cyan-400 h-10 w-2/5 mr-auto mb-5 rounded-2xl font-bold hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer flex justify-center items-center;
+    @apply bg-cyan-400 h-12 w-12 mr-auto mb-5 rounded-4xl font-bold hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer flex justify-center items-center;
   }
 }

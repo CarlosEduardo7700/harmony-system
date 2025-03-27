@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { FaHome } from "react-icons/fa";
 
 export default function Home() {
   return (
     <div className="container-principal">
 
-        <Link href="/" className="back-home-button">Home</Link>
+        <Link href="/" className="back-home-button"><FaHome size={30}/></Link>
 
         <form action="" className="form-cadastro-aulas">
 
