@@ -6,7 +6,7 @@
   }
 
   .container-principal {
-    @apply bg-white min-h-fit h-full w-11/12 flex justify-center items-center flex-wrap;
+    @apply bg-white min-h-fit h-full w-11/12 p-5 flex justify-center items-center flex-wrap;
     
   }
 
@@ -16,5 +16,41 @@
 
   .container-feature-box {
     @apply border-2 border-cyan-400 h-40 w-40 m-5 hover:bg-cyan-100 transition duration-300 cursor-pointer flex justify-center items-center;
+  }
+
+  .form-cadastro-aulas {
+    @apply w-5/6 flex flex-col justify-center items-center;
+
+    & .container-form-field {
+      @apply w-full flex flex-col p-3;
+
+      & .form-field-label {
+        @apply font-bold text-2xl;
+      }
+
+      & .form-field-input {
+        @apply bg-gray-200 h-10 rounded-2xl p-4;
+      }
+
+      & .form-field-textarea {
+        @apply bg-gray-200 h-24 rounded-2xl p-3;
+      }
+
+      & .form-field-options {
+        @apply flex justify-around flex-wrap;
+
+        & .form-field-option {
+          @apply flex justify-center items-center;
+        }
+
+        & .form-field-checkbox {
+          @apply bg-gray-200 h-4 w-4 mr-2 border-2 border-sky-950 rounded-full checked:bg-cyan-400 appearance-none;
+        }
+      }
+    }
+
+    & .form-button {
+      @apply bg-cyan-400 h-10 w-2/5 rounded-2xl font-bold hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer;
+    }
   }
 }
