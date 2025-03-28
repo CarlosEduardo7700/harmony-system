@@ -26,7 +26,7 @@
     @apply w-5/6 flex flex-col justify-center items-center;
 
     & .form-title {
-      @apply text-3xl text-center font-bold mb-5;
+      @apply text-3xl text-center font-bold mb-5 w-full;
     }
 
     & .container-form-field {
@@ -52,7 +52,7 @@
         }
 
         & .form-field-checkbox {
-          @apply bg-gray-200 h-4 w-4 mr-2 border-2 border-sky-950 rounded-full checked:bg-cyan-400 appearance-none;
+          @apply bg-gray-200 h-4 w-4 mr-2 ml-2 border-2 border-sky-950 rounded-full checked:bg-cyan-400 appearance-none;
         }
       }
     }

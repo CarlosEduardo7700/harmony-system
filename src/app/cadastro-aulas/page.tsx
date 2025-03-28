@@ -38,7 +38,7 @@ export default function Home() {
 
             <div className="container-form-field">
                 <label htmlFor="recurrence" className="form-field-label">Repetir a cada quantas semanas?</label>
-                <input type="number" id="recurrence" name="recurrence" required className="form-field-input"/>
+                <input type="number" min="0" id="recurrence" name="recurrence" required className="form-field-input"/>
             </div>
 
             <div className="container-form-field">
