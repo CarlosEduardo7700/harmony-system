@@ -1,65 +1,177 @@
+"use client"
+
 import Link from "next/link";
+import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
 
 export default function Home() {
+
+    const [classData, setClassData] = useState({
+        "title": "",
+        "startTime": "",
+        "endTime": "",
+        "startDate": "",
+        "endDate": "",
+        "recurrence": 1,
+        "daysWeek": [] as string[],
+        "observations": ""
+    })
+
+    const handleCheckBoxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const day = event.target.value
+
+        setClassData({
+            ...classData, 
+            "daysWeek": classData.daysWeek.includes(day) 
+                ? classData.daysWeek.filter((d) => d !== day)
+                : [...classData.daysWeek, day]
+        })
+    };
+
+    const handleChange = (
+        event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+    ) => {
+        const {name, value} = event.target
+
+        setClassData({...classData, [name]: value})
+    }
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+
+        console.log("Class Data:", classData)
+    }
+
+    const daysWeekOptions = [
+        "Segunda",
+        "Terça",
+        "Quarta",
+        "Quinta",
+        "Sexta",
+        "Sábado",
+        "Domingo",
+    ]
+
   return (
     <div className="container-principal">
 
         <Link href="/" className="back-home-button"><FaHome size={30}/></Link>
 
-        <form action="" className="form-cadastro-aulas">
+        <form onSubmit={handleSubmit} className="form-cadastro-aulas">
 
             <h1 className="form-title">Formulário para Cadastro das Aulas</h1>
 
             <div className="container-form-field">
                 <label htmlFor="title" className="form-field-label">Título</label>
-                <input type="text" id="title" name="title" required className="form-field-input"/>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    required 
+                    className="form-field-input"
+                    value={classData.title}
+                    onChange={handleChange}
+                />
             </div>
 
             <div className="container-form-field">
-                <label htmlFor="start-time" className="form-field-label">Horário de Início</label>
-                <input type="time" id="start-time" name="start-time" required className="form-field-input"/>
+                <label htmlFor="startTime" className="form-field-label">Horário de Início</label>
+                <input 
+                    type="time" 
+                    id="startTime" 
+                    name="startTime" 
+                    required 
+                    className="form-field-input"
+                    value={classData.startTime}
+                    onChange={handleChange}
+                />
             </div>
 
             <div className="container-form-field">
-                <label htmlFor="end-time" className="form-field-label">Horário de Término</label>
-                <input type="time" id="end-time" name="end-time" required className="form-field-input"/>
+                <label htmlFor="endTime" className="form-field-label">Horário de Término</label>
+                <input 
+                    type="time" 
+                    id="endTime" 
+                    name="endTime" 
+                    required 
+                    className="form-field-input"
+                    value={classData.endTime}
+                    onChange={handleChange}
+                />
             </div>
 
             <div className="container-form-field">
-                <label htmlFor="start-date" className="form-field-label">Data de Início do Período</label>
-                <input type="date" id="start-date" name="start-date" required className="form-field-input"/>
+                <label htmlFor="startDate" className="form-field-label">Data de Início do Período</label>
+                <input 
+                    type="date" 
+                    id="startDate" 
+                    name="startDate" 
+                    required 
+                    className="form-field-input"
+                    value={classData.startDate}
+                    onChange={handleChange}
+                />
             </div>
 
             <div className="container-form-field">
-                <label htmlFor="end-date" className="form-field-label">Data de Término do Período</label>
-                <input type="date" id="end-date" name="end-date" required className="form-field-input"/>
+                <label htmlFor="endDate" className="form-field-label">Data de Término do Período</label>
+                <input 
+                    type="date" 
+                    id="endDate" 
+                    name="endDate" 
+                    required 
+                    className="form-field-input"
+                    value={classData.endDate}
+                    onChange={handleChange}
+                />
             </div>
 
             <div className="container-form-field">
                 <label htmlFor="recurrence" className="form-field-label">Repetir a cada quantas semanas?</label>
-                <input type="number" min="0" id="recurrence" name="recurrence" required className="form-field-input"/>
+                <input 
+                    type="number" 
+                    min="0" 
+                    id="recurrence" 
+                    name="recurrence" 
+                    required 
+                    className="form-field-input"
+                    value={classData.recurrence}
+                    onChange={handleChange}
+                />
             </div>
 
             <div className="container-form-field">
                 <label className="form-field-label">Em quais dias da semana?</label>
                 <div className="form-field-options">
-                    <label className="form-field-option"><input type="checkbox" value="" className="form-field-checkbox"/>Segunda</label>
-                    <label className="form-field-option"><input type="checkbox" value="" className="form-field-checkbox"/>Terça</label>
-                    <label className="form-field-option"><input type="checkbox" value="" className="form-field-checkbox"/>Quarta</label>
-                    <label className="form-field-option"><input type="checkbox" value="" className="form-field-checkbox"/>Quinta</label>
-                    <label className="form-field-option"><input type="checkbox" value="" className="form-field-checkbox"/>Sexta</label>
-                    <label className="form-field-option"><input type="checkbox" value="" className="form-field-checkbox"/>Sábado</label>
-                    <label className="form-field-option"><input type="checkbox" value="" className="form-field-checkbox"/>Domingo</label>
+                    {
+                        daysWeekOptions.map((day) => (
+                            <label key={day} className="form-field-option">
+                                <input 
+                                    type="checkbox" 
+                                    value={day} 
+                                    onChange={handleCheckBoxChange}
+                                    checked={classData.daysWeek.includes(day)}
+                                    className="form-field-checkbox"
+                                />
+                                {day}
+                            </label>
+                        ))
+                    }
                 </div>
             </div>
 
             <div className="container-form-field">
                 <label htmlFor="observations" className="form-field-label">Observações (Opcional)</label>
-                <textarea name="observations" id="observations" className="form-field-textarea"></textarea>
+                <textarea 
+                    name="observations" 
+                    id="observations" 
+                    className="form-field-textarea"
+                    value={classData.observations}
+                    onChange={handleChange}
+                />
             </div>
 
-            <button className="form-button">Cadastrar</button>
+            <button type="submit" className="form-button">Cadastrar</button>
 
         </form>
     </div>
