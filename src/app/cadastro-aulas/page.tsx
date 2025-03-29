@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
 
-export default function Home() {
+export default function CadastrarAulas() {
 
     const [classData, setClassData] = useState({
         "title": "",
