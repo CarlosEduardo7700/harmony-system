@@ -65,4 +65,16 @@
   .back-home-button {
     @apply bg-cyan-400 h-12 w-12 mr-auto mb-5 rounded-4xl font-bold hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer flex justify-center items-center;
   }
+
+  .container-class-data {
+    @apply h-30 w-full mt-10 flex flex-col justify-center items-center flex-wrap;
+
+    & .class-detail {
+      @apply border-2 border-cyan-400 h-2/3 w-full flex justify-around items-center;
+    }
+  
+    & .class-features {
+      @apply border-2 border-t-0 border-cyan-400 h-1/3 w-full flex justify-around items-center;
+    }
+  }
 }

@@ -7,7 +7,7 @@ export default function Home() {
     <div className="container-principal">
       <section className="section-features">
         <FeatureBox urlFeature="/cadastro-aulas" text={"Cadastrar Aulas"}/>
-        <FeatureBox urlFeature="/" text={"Lista das Aulas"}/>
+        <FeatureBox urlFeature="/lista-aulas" text={"Lista das Aulas"}/>
       </section>
     </div>
   );
