@@ -35,6 +35,8 @@ export default function ListarAulas() {
     <div className="container-principal">
       <Link href="/" className="back-home-button"><FaHome size={30}/></Link>
       
+      <h1 className="page-title">Lista das Aulas</h1>
+
       {
         classList.map((classData, index) => (
             <ClassDataBox 
