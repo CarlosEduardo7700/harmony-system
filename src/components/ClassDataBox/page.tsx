@@ -36,10 +36,19 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
             console.log("Class Data:", classData)
         }
 
-    const [isOpen, setIsOpen] = useState(false)
+    const handleSubmitCancelClass = (event: React.FormEvent<HTMLFormElement>) => {
+            event.preventDefault()
+    
+            console.log(`${classNumber}° Aula Cancelada!`)
+        }
 
-    const openModal = () => setIsOpen(true)
-    const closeModal = () => setIsOpen(false)
+    const [isOpenEditModal, setIsOpenEditModal] = useState(false)
+    const [isOpenCancelModal, setIsOpenCancelModal] = useState(false)
+
+    const openEditModal = () => setIsOpenEditModal(true)
+    const closeEditModal = () => setIsOpenEditModal(false)
+    const openCancelModal = () => setIsOpenCancelModal(true)
+    const closeCancelModal = () => setIsOpenCancelModal(false)
 
     return (
         <div className="container-class-data">
@@ -50,11 +59,11 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                 <h1>{classDataNow.date}</h1>
             </div>
             <div className="class-features">
-                <button onClick={openModal} className="icon-button"><FaEdit size={22}/></button>
-                <button className="icon-button"><MdCancel size={22}/></button>
+                <button onClick={openEditModal} className="icon-button"><FaEdit size={22}/></button>
+                <button onClick={openCancelModal} className="icon-button"><MdCancel size={22}/></button>
             </div>
 
-            { isOpen && (
+            { isOpenEditModal && (
                 <div className="fixed inset-0 bg-black/50 text-black flex justify-center items-center">
                     <form onSubmit={handleSubmit} className="form-cadastro-aulas bg-white rounded-3xl p-2">
 
@@ -111,7 +120,26 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
 
                             <button type="submit" className="form-button">Salvar</button>
 
-                            <button onClick={closeModal} className="form-button bg-red-500 hover:bg-red-600 transition duration-300">Fechar</button>
+                            <button onClick={closeEditModal} className="form-button bg-red-500 hover:bg-red-600 transition duration-300">Fechar</button>
+
+                        </div>
+
+                    </form>
+                </div>
+            )}
+
+            { isOpenCancelModal && (
+                <div className="fixed inset-0 bg-black/50 text-black flex justify-center items-center">
+                    <form onSubmit={handleSubmitCancelClass} className="form-cadastro-aulas bg-white rounded-3xl p-2">
+
+                        <h1 className="form-title">Cancelar Aula?</h1>
+
+
+                        <div className="container-form-buttons">
+
+                            <button type="submit" className="form-button">Sim</button>
+
+                            <button onClick={closeCancelModal} className="form-button bg-red-500 hover:bg-red-600 transition duration-300">Não</button>
 
                         </div>
 
