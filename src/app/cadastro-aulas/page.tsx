@@ -1,8 +1,7 @@
 "use client"
 
-import Link from "next/link";
+import HomeButton from "@/components/HomeButton/HomeButton";
 import React, { useState } from "react";
-import { FaHome } from "react-icons/fa";
 
 export default function CadastrarAulas() {
 
@@ -55,7 +54,7 @@ export default function CadastrarAulas() {
   return (
     <div className="container-principal">
 
-        <Link href="/" className="back-home-button"><FaHome size={30}/></Link>
+        <HomeButton />
 
         <h1 className="page-title">Formulário para Cadastro das Aulas</h1>
 

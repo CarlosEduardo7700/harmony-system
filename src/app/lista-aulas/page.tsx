@@ -1,6 +1,5 @@
 import ClassDataBox from "@/components/ClassDataBox/page";
-import Link from "next/link";
-import { FaHome } from "react-icons/fa";
+import HomeButton from "@/components/HomeButton/HomeButton";
 
 export default function ListarAulas() {
 
@@ -37,7 +36,7 @@ export default function ListarAulas() {
 
   return (
     <div className="container-principal">
-      <Link href="/" className="back-home-button"><FaHome size={30}/></Link>
+      <HomeButton />
       
       <h1 className="page-title">Lista das Aulas</h1>
 
