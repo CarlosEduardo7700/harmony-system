@@ -71,7 +71,7 @@
   }
 
   .icon-button {
-    @apply bg-cyan-400 h-9 w-9 m-1 rounded-4xl flex justify-center items-center hover:text-white transition duration-300 cursor-pointer;
+    @apply m-2 flex justify-center items-center hover:text-cyan-400 transition duration-300 cursor-pointer;
   }
 
   .container-class-data {

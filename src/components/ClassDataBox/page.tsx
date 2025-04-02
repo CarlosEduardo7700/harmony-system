@@ -60,8 +60,8 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                 <h1>{classDataNow.date}</h1>
             </div>
             <div className="class-features">
-                <button onClick={openEditModal} className="icon-button"><FaEdit size={22}/></button>
-                <button onClick={openCancelModal} className="icon-button"><MdCancel size={22}/></button>
+                <button onClick={openEditModal} className="icon-button"><FaEdit size={27}/></button>
+                <button onClick={openCancelModal} className="icon-button"><MdCancel size={27}/></button>
             </div>
 
             <Modal isOpen={isOpenEditModal}>
