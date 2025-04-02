@@ -62,7 +62,7 @@
     }
 
     & .form-button {
-      @apply bg-cyan-400 h-10 w-2/5 rounded-2xl font-bold hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer;
+      @apply bg-cyan-400 h-10 w-2/5 rounded-2xl font-bold hover:text-white transition duration-300 cursor-pointer;
     }
   }
 

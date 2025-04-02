@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import Modal from "../Modal/page";
+import Button from "../Button/page";
 
 interface FeatureBoxProps {
     classDataNow: {
@@ -117,11 +118,8 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                     </div>
 
                     <div className="container-form-buttons">
-
-                        <button type="submit" className="form-button">Salvar</button>
-
-                        <button onClick={closeEditModal} className="form-button bg-red-500 hover:bg-red-600 transition duration-300">Fechar</button>
-
+                        <Button type="submit">Salvar</Button>
+                        <Button onClick={closeEditModal} styles="bg-transparent text-black">Fechar</Button>
                     </div>
 
                 </form>
@@ -133,11 +131,8 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                     <h1 className="form-title">Cancelar Aula?</h1>
 
                     <div className="container-form-buttons">
-
-                        <button type="submit" className="form-button">Sim</button>
-
-                        <button onClick={closeCancelModal} className="form-button bg-red-500 hover:bg-red-600 transition duration-300">Não</button>
-
+                        <Button type="submit">Sim</Button>
+                        <Button onClick={closeCancelModal} styles="bg-transparent text-black">Não</Button>
                     </div>
 
                 </form>

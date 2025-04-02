@@ -1,5 +1,6 @@
 "use client"
 
+import Button from "@/components/Button/page";
 import HomeButton from "@/components/HomeButton/HomeButton";
 import React, { useState } from "react";
 
@@ -170,7 +171,7 @@ export default function CadastrarAulas() {
                 />
             </div>
 
-            <button type="submit" className="form-button">Cadastrar</button>
+            <Button type="submit">Cadastrar</Button>
 
         </form>
     </div>
