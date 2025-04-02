@@ -86,6 +86,10 @@
     }
   }
 
+  .container-modal {
+    @apply fixed inset-0 bg-black/50 text-black flex justify-center items-center;
+  }
+
   .form-title {
     @apply text-2xl text-center font-bold mt-3 w-full;
   }
