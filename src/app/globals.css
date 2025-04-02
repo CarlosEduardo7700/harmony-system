@@ -22,11 +22,15 @@
     @apply border-2 border-cyan-400 h-40 w-40 m-5 hover:bg-cyan-100 transition duration-300 cursor-pointer flex justify-center items-center;
   }
 
-  & .page-title {
+  .page-title {
     @apply text-3xl text-center font-bold mb-5 w-full;
   }
 
-  .form-cadastro-aulas {
+  .form-title {
+    @apply text-2xl text-center font-bold mt-3 w-full;
+  }
+
+  .container-form {
     @apply w-5/6 flex flex-col justify-center items-center;
 
     & .container-form-field {
@@ -60,10 +64,10 @@
     & .container-form-buttons {
       @apply w-full m-2 flex justify-around;
     }
+  }
 
-    & .form-button {
-      @apply bg-cyan-400 h-10 w-2/5 rounded-2xl font-bold hover:text-white transition duration-300 cursor-pointer;
-    }
+  .default-button {
+    @apply bg-cyan-400 h-10 w-2/5 rounded-2xl font-bold hover:text-white transition duration-300 cursor-pointer;
   }
 
   .back-home-button {
@@ -86,11 +90,11 @@
     }
   }
 
-  .container-modal {
+  .background-modal {
     @apply fixed inset-0 bg-black/50 text-black flex justify-center items-center;
-  }
 
-  .form-title {
-    @apply text-2xl text-center font-bold mt-3 w-full;
+    & .container-modal {
+      @apply bg-white min-w-5/6 rounded-3xl p-2 flex flex-col justify-center items-center;
+    }
   }
 }

@@ -66,7 +66,7 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
             </div>
 
             <Modal isOpen={isOpenEditModal}>
-                <form onSubmit={handleSubmit} className="form-cadastro-aulas bg-white rounded-3xl p-2">
+                <form onSubmit={handleSubmit} className="container-form">
 
                     <h1 className="form-title">Editar</h1>
 
@@ -126,7 +126,7 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
             </Modal>
 
             <Modal isOpen={isOpenCancelModal}>
-                <form onSubmit={handleSubmitCancelClass} className="form-cadastro-aulas bg-white rounded-3xl p-2">
+                <form onSubmit={handleSubmitCancelClass} className="container-form">
 
                     <h1 className="form-title">Cancelar Aula?</h1>
 

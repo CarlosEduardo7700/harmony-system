@@ -7,7 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
 
 export default function Button({ styles, children, ...props }: ButtonProps) {
     return (
-        <button {...props} className={`form-button ${styles}`}>
+        <button {...props} className={`default-button ${styles}`}>
             {children}
         </button>
     );

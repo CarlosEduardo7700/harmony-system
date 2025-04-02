@@ -59,7 +59,7 @@ export default function CadastrarAulas() {
 
         <h1 className="page-title">Formulário para Cadastro das Aulas</h1>
 
-        <form onSubmit={handleSubmit} className="form-cadastro-aulas">
+        <form onSubmit={handleSubmit} className="container-form">
 
             <div className="container-form-field">
                 <label htmlFor="title" className="form-field-label">Título</label>

@@ -9,8 +9,10 @@ export default function Modal({ isOpen, children }: ModalProps) {
     if (!isOpen) return null;
 
     return (
-        <div className="container-modal">
-            {children}
+        <div className="background-modal">
+            <div className="container-modal">
+                {children}
+            </div>
         </div>
     );
 }
