@@ -4,12 +4,14 @@ import { FaEdit } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import Modal from "../Modal/page";
 import Button from "../Button/page";
+import FormField from "../FormField/page";
+import LongTextFormField from "../LongTextFormField/page";
 
 interface FeatureBoxProps {
     classDataNow: {
         startTime: string;
         endTime: string;
-        date: string;
+        classDate: string;
         observations: string;
     }
     classNumber: number;
@@ -20,7 +22,7 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
     const [classData, setClassData] = useState({
             "startTime": classDataNow.startTime,
             "endTime": classDataNow.endTime,
-            "date": classDataNow.date,
+            "classDate": classDataNow.classDate,
             "observations": classDataNow.observations
         })
 
@@ -58,7 +60,7 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                 <h1>{classNumber}° Aula</h1>
                 <h1>{classDataNow.startTime}</h1>
                 <h1>{classDataNow.endTime}</h1>
-                <h1>{classDataNow.date}</h1>
+                <h1>{classDataNow.classDate}</h1>
             </div>
             <div className="class-features">
                 <button onClick={openEditModal} className="icon-button"><FaEdit size={27}/></button>
@@ -70,52 +72,36 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
 
                     <h1 className="form-title">Editar</h1>
 
-                    <div className="container-form-field">
-                        <label htmlFor="startTime" className="form-field-label">Horário de Início</label>
-                        <input 
-                            type="time" 
-                            id="startTime" 
-                            name="startTime"
-                            className="form-field-input"
-                            value={classData.startTime}
-                            onChange={handleChange}
-                        />
-                    </div>
+                    <FormField 
+                        label="Horário de Início"
+                        type="time"
+                        name="startTime"
+                        value={classData.startTime}
+                        onChange={handleChange}
+                    />
 
-                    <div className="container-form-field">
-                        <label htmlFor="endTime" className="form-field-label">Horário de Término</label>
-                        <input 
-                            type="time" 
-                            id="endTime" 
-                            name="endTime"
-                            className="form-field-input"
-                            value={classData.endTime}
-                            onChange={handleChange}
-                        />
-                    </div>
+                    <FormField 
+                        label="Horário de Término"
+                        type="time"
+                        name="endTime"
+                        value={classData.endTime}
+                        onChange={handleChange}
+                    />
 
-                    <div className="container-form-field">
-                        <label htmlFor="date" className="form-field-label">Data</label>
-                        <input 
-                            type="date" 
-                            id="date" 
-                            name="date"
-                            className="form-field-input"
-                            value={classData.date}
-                            onChange={handleChange}
-                        />
-                    </div>
+                    <FormField 
+                        label="Data da Aula"
+                        type="date"
+                        name="classDate"
+                        value={classData.classDate}
+                        onChange={handleChange}
+                    />
 
-                    <div className="container-form-field">
-                        <label htmlFor="observations" className="form-field-label">Observações</label>
-                        <textarea 
-                            name="observations" 
-                            id="observations" 
-                            className="form-field-textarea"
-                            value={classData.observations}
-                            onChange={handleChange}
-                        />
-                    </div>
+                    <LongTextFormField
+                        label="Observações"
+                        name="observations"
+                        value={classData.observations}
+                        onChange={handleChange}
+                    />
 
                     <div className="container-form-buttons">
                         <Button type="submit">Salvar</Button>
