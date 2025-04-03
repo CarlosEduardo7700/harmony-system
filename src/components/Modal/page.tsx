@@ -5,7 +5,7 @@ interface ModalProps {
     children: ReactNode;
 }
 
-export default function Modal({ isOpen, children }: ModalProps) {
+export default function Modal({ isOpen, children }: ModalProps): React.JSX.Element | null {
     if (!isOpen) return null;
 
     return (

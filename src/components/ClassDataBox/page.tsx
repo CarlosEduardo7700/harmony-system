@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
@@ -17,42 +17,46 @@ interface FeatureBoxProps {
     classNumber: number;
 }
 
-export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProps) {
+export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProps): React.JSX.Element {
 
     const [classData, setClassData] = useState({
-            "startTime": classDataNow.startTime,
-            "endTime": classDataNow.endTime,
-            "classDate": classDataNow.classDate,
-            "observations": classDataNow.observations
-        })
+        "startTime": classDataNow.startTime,
+        "endTime": classDataNow.endTime,
+        "classDate": classDataNow.classDate,
+        "observations": classDataNow.observations
+    });
 
     const handleChange = (
-            event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
-        ) => {
-            const {name, value} = event.target
+        event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+    ): void => {
+        const {name, value} = event.target;
     
-            setClassData({...classData, [name]: value})
-        }
+        setClassData({...classData, [name]: value});
+    };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault()
+    const handleSubmit = (
+        event: React.FormEvent<HTMLFormElement>
+    ): void => {
+        event.preventDefault();
     
-            console.log("Class Data:", classData)
-        }
+        console.log("Class Data:", classData);
+    };
 
-    const handleSubmitCancelClass = (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault()
+    const handleSubmitCancelClass = (
+        event: React.FormEvent<HTMLFormElement>
+    ): void => {
+        event.preventDefault();
     
-            console.log(`${classNumber}° Aula Cancelada!`)
-        }
+        console.log(`${classNumber}° Aula Cancelada!`);
+    };
 
-    const [isOpenEditModal, setIsOpenEditModal] = useState(false)
-    const [isOpenCancelModal, setIsOpenCancelModal] = useState(false)
+    const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+    const [isOpenCancelModal, setIsOpenCancelModal] = useState(false);
 
-    const openEditModal = () => setIsOpenEditModal(true)
-    const closeEditModal = () => setIsOpenEditModal(false)
-    const openCancelModal = () => setIsOpenCancelModal(true)
-    const closeCancelModal = () => setIsOpenCancelModal(false)
+    const openEditModal = (): void => setIsOpenEditModal(true);
+    const closeEditModal = (): void => setIsOpenEditModal(false);
+    const openCancelModal = (): void => setIsOpenCancelModal(true);
+    const closeCancelModal = (): void => setIsOpenCancelModal(false);
 
     return (
         <div className="container-class-data">

@@ -10,7 +10,7 @@ interface FormFieldProps {
     required?: boolean;
 }
 
-export default function FormField({ label, type, name, value, min, onChange, required = false }: FormFieldProps) {
+export default function FormField({ label, type, name, value, min, onChange, required = false }: FormFieldProps): React.JSX.Element {
     return (
         <div className="container-form-field">
             <label htmlFor={name} className="form-field-label">{label}</label>

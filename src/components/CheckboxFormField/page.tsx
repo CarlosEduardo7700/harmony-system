@@ -10,7 +10,7 @@ interface CheckboxFormFieldProps {
     onChange: ChangeEventHandler<HTMLInputElement> | undefined
 }
 
-export default function CheckboxFormField({ label, optionsList, selectedList, onChange }: CheckboxFormFieldProps) {
+export default function CheckboxFormField({ label, optionsList, selectedList, onChange }: CheckboxFormFieldProps): React.JSX.Element {
     return (
         <div className="container-form-field">
             <label className="form-field-label">{label}</label>

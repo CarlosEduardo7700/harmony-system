@@ -1,7 +1,7 @@
 import ClassDataBox from "@/components/ClassDataBox/page";
 import HomeButton from "@/components/HomeButton/HomeButton";
 
-export default function ListarAulas() {
+export default function ListarAulas(): React.JSX.Element {
 
     const classList = [
         {
@@ -32,24 +32,24 @@ export default function ListarAulas() {
             "classDate": "2025-01-22", 
             "observations": "Quarta Aula"
         },
-    ]
+    ];
 
-  return (
-    <div className="container-principal">
-      <HomeButton />
+    return (
+        <div className="container-principal">
+            <HomeButton />
       
-      <h1 className="page-title">Lista das Aulas</h1>
+            <h1 className="page-title">Lista das Aulas</h1>
 
-      {
-        classList.map((classData, index) => (
-            <ClassDataBox 
-                key={classData.id} 
-                classNumber={index + 1} 
-                classDataNow={classData}
-            />
-        ))
-      }
+            {
+                classList.map((classData, index) => (
+                    <ClassDataBox 
+                        key={classData.id} 
+                        classNumber={index + 1} 
+                        classDataNow={classData}
+                    />
+                ))
+            }
 
-    </div>
-  );
+        </div>
+    );
 }

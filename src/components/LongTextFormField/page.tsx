@@ -8,7 +8,7 @@ interface LongTextFormFieldProps {
     required?: boolean;
 }
 
-export default function LongTextFormField({ label, name, value, onChange, required = false }: LongTextFormFieldProps) {
+export default function LongTextFormField({ label, name, value, onChange, required = false }: LongTextFormFieldProps): React.JSX.Element {
     return (
         <div className="container-form-field">
             <label htmlFor={name} className="form-field-label">{label}</label>

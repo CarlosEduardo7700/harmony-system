@@ -5,7 +5,7 @@ interface FeatureBoxProps {
     urlFeature: string;
 }
 
-export default function FeatureBox({text, urlFeature}: FeatureBoxProps) {
+export default function FeatureBox({text, urlFeature}: FeatureBoxProps): React.JSX.Element {
     return (
         <Link href={urlFeature} className="container-feature-box">
             <p>{text}</p>
