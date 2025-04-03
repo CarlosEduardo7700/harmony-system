@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  body {
+    @apply bg-sky-900 h-screen flex flex-col justify-start items-center;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .container-principal {
+    @apply bg-white min-h-fit h-full w-11/12 p-5 flex flex-col justify-center items-center flex-wrap;
+    
+  }
+
+  .container-header {
+    @apply bg-sky-950 min-h-36 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
+  }
+
+  .section-features {
+    @apply h-auto w-full mb-5 flex justify-center items-center flex-wrap;
+  }
+
+  .container-feature-box {
+    @apply border-2 border-cyan-400 h-40 w-40 m-5 hover:bg-cyan-100 transition duration-300 cursor-pointer flex justify-center items-center;
+  }
+
+  .page-title {
+    @apply text-3xl text-center font-bold mb-5 w-full;
+  }
+
+  .form-title {
+    @apply text-2xl text-center font-bold mt-3 w-full;
+  }
+
+  .container-form {
+    @apply w-5/6 flex flex-col justify-center items-center;
+
+    & .container-form-field {
+      @apply w-full flex flex-col p-3;
+
+      & .form-field-label {
+        @apply font-bold text-2xl;
+      }
+
+      & .form-field-input {
+        @apply bg-gray-200 h-10 rounded-2xl p-4;
+      }
+
+      & .form-field-textarea {
+        @apply bg-gray-200 h-24 rounded-2xl p-3;
+      }
+
+      & .form-field-options {
+        @apply flex justify-around flex-wrap;
+
+        & .form-field-option {
+          @apply flex justify-center items-center;
+        }
+
+        & .form-field-checkbox {
+          @apply bg-gray-200 h-4 w-4 mr-2 ml-2 border-2 border-sky-950 rounded-full checked:bg-cyan-400 appearance-none;
+        }
+      }
+    }
+
+    & .container-form-buttons {
+      @apply w-full m-2 flex justify-around;
+    }
+  }
+
+  .default-button {
+    @apply bg-cyan-400 h-10 w-2/5 rounded-2xl font-bold hover:text-white transition duration-300 cursor-pointer;
+  }
+
+  .back-home-button {
+    @apply bg-cyan-400 h-12 w-12 mr-auto mb-5 rounded-4xl hover:bg-cyan-500 hover:text-white transition duration-300 cursor-pointer flex justify-center items-center;
+  }
+
+  .icon-button {
+    @apply m-2 flex justify-center items-center hover:text-cyan-400 transition duration-300 cursor-pointer;
+  }
+
+  .container-class-data {
+    @apply h-30 w-full mt-10 flex flex-col justify-center items-center;
+
+    & .class-detail {
+      @apply border-2 border-cyan-400 h-2/3 w-full flex justify-around items-center;
+    }
+  
+    & .class-features {
+      @apply border-2 border-t-0 border-cyan-400 h-auto w-full flex justify-around items-center;
+    }
+  }
+
+  .background-modal {
+    @apply fixed inset-0 bg-black/50 text-black flex justify-center items-center;
+
+    & .container-modal {
+      @apply bg-white min-w-5/6 rounded-3xl p-2 flex flex-col justify-center items-center;
+    }
+  }
 }
