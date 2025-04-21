@@ -97,4 +97,13 @@
       @apply bg-white min-w-5/6 rounded-3xl p-2 flex flex-col justify-center items-center;
     }
   }
+
+  .container-alert {
+    @apply flex flex-col items-center;
+
+    h1 {
+      @apply text-2xl mb-3 font-extrabold;
+    }
+  }
+
 }

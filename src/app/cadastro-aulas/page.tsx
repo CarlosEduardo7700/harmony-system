@@ -5,6 +5,7 @@ import CheckboxFormField from "@/components/CheckboxFormField/page";
 import FormField from "@/components/FormField/page";
 import HomeButton from "@/components/HomeButton/HomeButton";
 import LongTextFormField from "@/components/LongTextFormField/page";
+import Modal from "@/components/Modal/page";
 import React, { useState } from "react";
 
 export default function CadastrarAulas(): React.JSX.Element {
@@ -16,50 +17,62 @@ export default function CadastrarAulas(): React.JSX.Element {
         "startDate": "",
         "endDate": "",
         "recurrence": 1,
-        "daysWeek": [] as string[],
+        "weekdays": [] as string[],
         "observations": ""
     });
+    const [apiResponseMessage, setApiResponseMessage] = useState("");
+    const [isOpenAlertModal, setIsOpenAlertModal] = useState(false);
+
+    const openAlertModal = (): void => setIsOpenAlertModal(true);
+    const closeAlertModal = (): void => setIsOpenAlertModal(false);
 
     const handleCheckBoxChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
-        
         const day = event.target.value;
-
         setClassData({
             ...classData, 
-            "daysWeek": classData.daysWeek.includes(day) 
-                ? classData.daysWeek.filter((d) => d !== day)
-                : [...classData.daysWeek, day]
+            "weekdays": classData.weekdays.includes(day) 
+                ? classData.weekdays.filter((d) => d !== day)
+                : [...classData.weekdays, day]
         });
     };
 
     const handleChange = (
         event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
     ): void => {
-
         const {name, value} = event.target;
-
         setClassData({...classData, [name]: value});
     };
 
-    const handleSubmit = (
+    const handleSubmit = async (
         event: React.FormEvent<HTMLFormElement>
-    ): void => {
+    ): Promise<void> => {
 
         event.preventDefault();
 
-        console.log("Class Data:", classData);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lesson`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(classData)
+        });
+        const responseBody = await response.json();
+
+        setApiResponseMessage(responseBody.message);
+
+        openAlertModal();
     };
 
-    const daysWeekOptions = [
-        {id: 1, nameOption: "Segunda"},
-        {id: 2, nameOption: "Terça"},
-        {id: 3, nameOption: "Quarta"},
-        {id: 4, nameOption: "Quinta"},
-        {id: 5, nameOption: "Sexta"},
-        {id: 6, nameOption: "Sábado"},
-        {id: 7, nameOption: "Domingo"},
+    const weekdaysOptions = [
+        {id: 1, nameOption: "Segunda", valueOption: "Monday"},
+        {id: 2, nameOption: "Terça", valueOption: "Tuesday"},
+        {id: 3, nameOption: "Quarta", valueOption: "Wednesday"},
+        {id: 4, nameOption: "Quinta", valueOption: "Thursday"},
+        {id: 5, nameOption: "Sexta", valueOption: "Friday"},
+        {id: 6, nameOption: "Sábado", valueOption: "Saturday"},
+        {id: 7, nameOption: "Domingo", valueOption: "Sunday"},
     ];
 
     return (
@@ -128,8 +141,8 @@ export default function CadastrarAulas(): React.JSX.Element {
 
                 <CheckboxFormField 
                     label="Em quais dias da semana?"
-                    optionsList={daysWeekOptions}
-                    selectedList={classData.daysWeek}
+                    optionsList={weekdaysOptions}
+                    selectedList={classData.weekdays}
                     onChange={handleCheckBoxChange}
                 />
 
@@ -143,6 +156,13 @@ export default function CadastrarAulas(): React.JSX.Element {
                 <Button type="submit">Cadastrar</Button>
 
             </form>
+
+            <Modal isOpen={isOpenAlertModal}>
+                <div className="container-alert">
+                    <h1>{apiResponseMessage}</h1>
+                    <Button onClick={closeAlertModal}>Fechar</Button>
+                </div>
+            </Modal>
         </div>
     );
 }
