@@ -6,14 +6,10 @@ import Modal from "../Modal/page";
 import Button from "../Button/page";
 import FormField from "../FormField/page";
 import LongTextFormField from "../LongTextFormField/page";
+import { Lesson } from "@/types/lesson.type";
 
 interface FeatureBoxProps {
-    classDataNow: {
-        startTime: string;
-        endTime: string;
-        classDate: string;
-        observations: string;
-    }
+    classDataNow: Lesson
     classNumber: number;
 }
 
@@ -22,7 +18,7 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
     const [classData, setClassData] = useState({
         "startTime": classDataNow.startTime,
         "endTime": classDataNow.endTime,
-        "classDate": classDataNow.classDate,
+        "lessonDate": classDataNow.lessonDate,
         "observations": classDataNow.observations
     });
 
@@ -64,7 +60,7 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                 <h1>{classNumber}° Aula</h1>
                 <h1>{classDataNow.startTime}</h1>
                 <h1>{classDataNow.endTime}</h1>
-                <h1>{classDataNow.classDate}</h1>
+                <h1>{classDataNow.lessonDate}</h1>
             </div>
             <div className="class-features">
                 <button onClick={openEditModal} className="icon-button"><FaEdit size={27}/></button>
@@ -95,8 +91,8 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                     <FormField 
                         label="Data da Aula"
                         type="date"
-                        name="classDate"
-                        value={classData.classDate}
+                        name="lessonDate"
+                        value={classData.lessonDate}
                         onChange={handleChange}
                     />
 
