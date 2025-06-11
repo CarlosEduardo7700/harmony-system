@@ -97,4 +97,29 @@
       @apply bg-white min-w-5/6 rounded-3xl p-2 flex flex-col justify-center items-center;
     }
   }
+
+  .container-alert {
+    @apply flex flex-col items-center;
+
+    h1 {
+      @apply text-2xl mb-3 font-extrabold;
+    }
+  }
+
+  .container-filter {
+    @apply w-full flex justify-center;
+
+    & .container-field-filter {
+      @apply flex flex-col m-4;
+
+      & .filter-field-label {
+        @apply font-bold text-center;
+      }
+
+      & .filter-field-input {
+        @apply bg-gray-200 h-16 w-16 rounded-2xl text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none;
+      }
+    }
+  }
+
 }
