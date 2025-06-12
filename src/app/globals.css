@@ -14,11 +14,11 @@
     @apply bg-sky-950 min-h-36 w-screen text-white text-6xl font-extrabold flex justify-center items-center border-b-8 border-b-cyan-400;
   }
 
-  .section-features {
+  .section-nav {
     @apply h-auto w-full mb-5 flex justify-center items-center flex-wrap;
   }
 
-  .container-feature-box {
+  .container-nav-box {
     @apply border-2 border-cyan-400 h-40 w-40 m-5 hover:bg-cyan-100 transition duration-300 cursor-pointer flex justify-center items-center text-center;
   }
 
