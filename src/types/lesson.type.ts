@@ -6,4 +6,5 @@ export type Lesson = {
     startTime: string;
     endTime: string;
     lessonDate: string;
+    googleEventId: string;
   }

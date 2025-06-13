@@ -7,6 +7,7 @@ import Button from "../Button/page";
 import FormField from "../FormField/page";
 import LongTextFormField from "../LongTextFormField/page";
 import { Lesson } from "@/types/lesson.type";
+import { LuLoaderCircle } from "react-icons/lu";
 
 interface FeatureBoxProps {
     classDataNow: Lesson
@@ -19,30 +20,46 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
         "startTime": classDataNow.startTime,
         "endTime": classDataNow.endTime,
         "lessonDate": classDataNow.lessonDate,
-        "observations": classDataNow.observations
+        "observations": classDataNow.observations,
+        "googleEventId": classDataNow.googleEventId,
     });
+
+    const [isOpenAlertModal, setIsOpenAlertModal] = useState(false);
+
+    const openAlertModal = (): void => setIsOpenAlertModal(true);
 
     const handleChange = (
         event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
     ): void => {
         const {name, value} = event.target;
-    
         setClassData({...classData, [name]: value});
     };
 
-    const handleSubmit = (
+    const handleSubmitEdit = async (
         event: React.FormEvent<HTMLFormElement>
-    ): void => {
+    ): Promise<void> => {
         event.preventDefault();
+
+        openAlertModal();
+
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lesson/${classDataNow.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(classData)
+        });
+        const responseBody = await response.json();
     
-        console.log("Class Data:", classData);
+        console.log("Class Data:", responseBody);
+
+        window.location.reload();
     };
 
     const handleSubmitCancelClass = (
         event: React.FormEvent<HTMLFormElement>
     ): void => {
         event.preventDefault();
-    
         console.log(`${classNumber}° Aula Cancelada!`);
     };
 
@@ -68,7 +85,7 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
             </div>
 
             <Modal isOpen={isOpenEditModal}>
-                <form onSubmit={handleSubmit} className="container-form">
+                <form onSubmit={handleSubmitEdit} className="container-form">
 
                     <h1 className="form-title">Editar</h1>
 
@@ -122,6 +139,10 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                     </div>
 
                 </form>
+            </Modal>
+
+            <Modal isOpen={isOpenAlertModal}>
+                <LuLoaderCircle size={70} className="animate-spin text-cyan-400"/>
             </Modal>
         </div>
     );
