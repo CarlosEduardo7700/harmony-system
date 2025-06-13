@@ -42,25 +42,32 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
 
         openAlertModal();
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lesson/${classDataNow.id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lesson/${classDataNow.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(classData)
         });
-        const responseBody = await response.json();
-    
-        console.log("Class Data:", responseBody);
 
         window.location.reload();
     };
 
-    const handleSubmitCancelClass = (
+    const handleSubmitCancelClass = async (
         event: React.FormEvent<HTMLFormElement>
-    ): void => {
+    ): Promise<void> => {
         event.preventDefault();
-        console.log(`${classNumber}° Aula Cancelada!`);
+
+        openAlertModal();
+        
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lesson/${classDataNow.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        window.location.reload();
     };
 
     const [isOpenEditModal, setIsOpenEditModal] = useState(false);
