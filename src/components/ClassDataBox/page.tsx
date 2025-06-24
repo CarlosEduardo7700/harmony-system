@@ -17,6 +17,7 @@ interface FeatureBoxProps {
 export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProps): React.JSX.Element {
 
     const [classData, setClassData] = useState({
+        "title": classDataNow.title,
         "startTime": classDataNow.startTime,
         "endTime": classDataNow.endTime,
         "lessonDate": classDataNow.lessonDate,
@@ -95,6 +96,14 @@ export default function ClassDataBox({classNumber, classDataNow}: FeatureBoxProp
                 <form onSubmit={handleSubmitEdit} className="container-form">
 
                     <h1 className="form-title">Editar</h1>
+
+                    <FormField 
+                        label="Título" 
+                        type="text"
+                        name="title" 
+                        value={classData.title}
+                        onChange={handleChange}
+                    />
 
                     <FormField 
                         label="Horário de Início"
